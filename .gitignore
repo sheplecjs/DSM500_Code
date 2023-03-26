@@ -1,3 +1,12 @@
+# results
+notebooks/checkpoints/*
+notebooks/results/*
+notebooks/test_results/*
+notebooks/datasets/*
+
+*/.DS_Store
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

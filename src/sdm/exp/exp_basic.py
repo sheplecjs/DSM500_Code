@@ -1,6 +1,7 @@
 import os
 import torch
 import numpy as np
+from pathlib import Path
 
 
 class Exp_Basic(object):
@@ -14,6 +15,7 @@ class Exp_Basic(object):
         return None
 
     def _acquire_device(self):
+        print(Path.cwd())
         if self.args.use_gpu:
             os.environ["CUDA_VISIBLE_DEVICES"] = str(
                 self.args.gpu) if not self.args.use_multi_gpu else self.args.devices

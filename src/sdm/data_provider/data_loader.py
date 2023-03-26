@@ -5,8 +5,9 @@ import os
 import torch
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler
-from utils.timefeatures import time_features
+from sdm.utils.timefeatures import time_features
 import warnings
+from pathlib import Path
 
 warnings.filterwarnings('ignore')
 
@@ -17,6 +18,7 @@ class Dataset_ETT_hour(Dataset):
                  target='OT', scale=True, timeenc=0, freq='h'):
         # size [seq_len, label_len, pred_len]
         # info
+        print(Path.cwd())
         if size == None:
             self.seq_len = 24 * 4 * 4
             self.label_len = 24 * 4
