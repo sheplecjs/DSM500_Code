@@ -3,6 +3,7 @@ from sdm.exp.exp_basic import Exp_Basic
 from sdm.models import Informer, Autoformer, Transformer, Reformer, Transformer_rnd, Transformer_SDM
 from sdm.utils.tools import EarlyStopping, adjust_learning_rate, visual
 from sdm.utils.metrics import metric
+import math
 
 import numpy as np
 import torch
@@ -86,6 +87,7 @@ class Exp_Main(Exp_Basic):
                 loss = criterion(pred, true)
 
                 total_loss.append(loss)
+        total_loss = [x for x in total_loss if (math.isnan(x) == True)]
         total_loss = np.average(total_loss)
         self.model.train()
         return total_loss

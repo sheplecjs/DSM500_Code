@@ -80,7 +80,7 @@ class FredFxTimeSeries:
 
         if os.path.exists(file_path):
             self.data = pd.read_csv(file_path)
-            
+
         else:
             raw = call_api(self)
             self.data = process_raw(raw)
